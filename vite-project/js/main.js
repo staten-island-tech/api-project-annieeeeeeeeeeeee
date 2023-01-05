@@ -1,4 +1,5 @@
 import "./style.css";
+import { DOMSelectors } from "./dom";
 
 const URL = "https://v2.jokeapi.dev/joke/Any?safe-mode";
 
