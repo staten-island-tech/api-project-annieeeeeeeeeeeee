@@ -1,7 +1,9 @@
 //import "..styles/style.css";
 //import { DOMSelectors } from "./dom";
 
-const URL = "https://v2.jokeapi.dev/joke/Any?safe-mode";
+//const URL = "https://v2.jokeapi.dev/joke/Any?safe-mode";
+const URLmaybe =
+  "https://raw.githubusercontent.com/Sv443/JokeAPI/master/data/jokes/regular/jokes-en.json";
 
 /* async function getData(URL) {
   try {
@@ -19,8 +21,22 @@ const URL = "https://v2.jokeapi.dev/joke/Any?safe-mode";
   }
 } */
 //getData(URL);
+async function getData(URLmaybe) {
+  try {
+    const response = await fetch(URL);
+    if (response.status < 200 || response.status > 299) {
+      throw new Error();
+    } else {
+      console.log(response);
+      document.getElementById("jotdJs").textContent = response.jokes[0].jokes;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+getData(URL);
 
-async function filter(URL) {
+/* async function filter(URL) {
   try {
     const response = await fetch(URL);
     if (response.status < 200 || response.status > 299) {
@@ -29,18 +45,16 @@ async function filter(URL) {
       console.log(response);
       const data = await response.json();
       console.log(data);
-      const result = data.array.filter((e) => e.category === "Misc");
-
       console.log(result);
     }
   } catch (error) {
     console.log(error);
   }
 }
-
+/*  
 filter(URL);
 
-const category = "https://v2.jokeapi.dev/categories";
+const category = "https://v2.jokeapi.dev/categories"; */
 /* 
 async function getCategory(category){
   try {
