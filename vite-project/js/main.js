@@ -1,8 +1,7 @@
 //import "..styles/style.css";
 //import { DOMSelectors } from "./dom";
 
-//const URL = "https://v2.jokeapi.dev/joke/Any?safe-mode";
-const URLmaybe =
+const URL =
   "https://raw.githubusercontent.com/Sv443/JokeAPI/master/data/jokes/regular/jokes-en.json";
 
 /* async function getData(URL) {
@@ -21,49 +20,33 @@ const URLmaybe =
   }
 } */
 //getData(URL);
-async function getData(URLmaybe) {
-  try {
-    const response = await fetch(URL);
-    if (response.status < 200 || response.status > 299) {
-      throw new Error();
-    } else {
-      console.log(response);
-      document.getElementById("jotdJs").textContent = response.jokes[0].jokes;
-    }
-  } catch (error) {
-    console.log(error);
-  }
-}
-getData(URL);
 
-/* async function filter(URL) {
+async function dataSafe(URL) {
   try {
     const response = await fetch(URL);
     if (response.status < 200 || response.status > 299) {
-      throw new Error();
+      throw new Error(); //if error
     } else {
-      console.log(response);
       const data = await response.json();
-      console.log(data);
-      console.log(result);
+      data.jokes.filter((e) => e.safe === true).forEach((e) => console.log(e));
     }
   } catch (error) {
     console.log(error);
   }
 }
-/*  
-filter(URL);
+dataSafe(URL);
 
-const category = "https://v2.jokeapi.dev/categories"; */
-/* 
-async function getCategory(category){
-  try {
-    const reponse = await fetch (category);
-    if (reponse.status <200 || reponse.status >299) {
-      throw new Error();
-    } else {
-      const data = await reponse.json(); 
+let min = 0;
+let max = 186; //total joke count
 
-    }
-  }
-}; */
+function getRandom(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+getRandom(min, max);
+console.log(getRandom(min, max));
+
+function qotd{
+  data.jokes
+}
+
