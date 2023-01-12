@@ -1,4 +1,4 @@
-//import "..styles/style.css";
+import "../styles/style.css";
 import { DOMSelectors } from "./dom";
 
 const URL2 =
@@ -16,10 +16,45 @@ async function getData(URL) {
       console.log(response);
       const data = await response.json();
       console.log(data);
-      document.getElementById("app").textContent = data.setup;
+      const dataArray = [];
+      dataArray.push(data);
+      console.log(dataArray);
+      function jotdTwopart() {
+        dataArray
+          .filter((e) => e.type === "twopart")
+          .forEach((e) => {
+            DOMSelectors.welcome.insertAdjacentHTML(
+              "beforeend",
+              `<p>${e.setup}</p>
+          <button class="button" id="deliver">Show</button>
+          <div id="delivery"></div>`
+            );
+            document
+              .getElementById("deliver")
+              .addEventListener("click", function () {
+                document.getElementById("delivery").textContent = e.delivery;
+                document.getElementById("deliver").textContent = "Hide";
+              });
+          });
+      }
+
+      jotdTwopart();
+      function jotdSingle() {
+        dataArray
+          .filter((e) => e.type === "single")
+          .forEach((e) => {
+            DOMSelectors.welcome.insertAdjacentHTML(
+              "beforeend",
+              `<p>${e.joke}</p>`
+            );
+          });
+      }
+
+      jotdSingle();
     }
   } catch (error) {
     console.log(error);
+    console.log("uh oh");
   }
 }
 getData(URL);
