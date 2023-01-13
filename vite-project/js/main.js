@@ -25,9 +25,9 @@ async function getData(URL) {
           .forEach((e) => {
             DOMSelectors.welcome.insertAdjacentHTML(
               "beforeend",
-              `<p>${e.setup}</p>
-          <button class="button" id="deliver">Show</button>
-          <div id="delivery"></div>`
+              `<p class="text">${e.setup}<button class="button" id="deliver">Show</button></p>
+          
+          <div class="text" id="delivery"></div>`
             );
             document
               .getElementById("deliver")
@@ -45,8 +45,9 @@ async function getData(URL) {
           .forEach((e) => {
             DOMSelectors.welcome.insertAdjacentHTML(
               "beforeend",
-              `<p>${e.joke}</p>`
+              `<p class="text">${e.joke}</p>`
             );
+            document.getElementById("deliver").innerHTML = "";
           });
       }
 
@@ -92,35 +93,3 @@ async function dataSafe1(URL2) {
   }
 }
 dataSafe1(URL2);
-
-/* async function welcome(refresh) {
-  try {
-    const response = await fetch(refresh);
-    if (response.status < 200 || response.status > 299) {
-      throw new Error();
-    } else {
-      const data = await response.json();
-      console.log(data);
-      console.log(response);
-      document.getElementById("jotdJs").textContent = data.setup;
-    }
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-welcome(); */
-
-/* let min = 0;
-let max = 185; //total joke count
- */
-// function getRandom(min, max) {
-//   return Math.floor(Math.random() * (max - min)) + min;
-// }
-
-// getRandom(min, max);
-// console.log(getRandom(min, max));
-
-// function change() {
-//   dataSafe();
-// }
