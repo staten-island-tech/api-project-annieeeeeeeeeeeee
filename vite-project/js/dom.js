@@ -9,7 +9,7 @@ const DOMSelectors = {
   spooky: document.getElementById("spooky"),
   surprise: document.getElementById("ev"),
   misc: document.getElementById("misc"),
-  welcome: document.getElementById("jotdJs"),
+  cardBack: document.getElementById("card-back"),
 };
 
 export { DOMSelectors };

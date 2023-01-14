@@ -23,7 +23,7 @@ async function getData(URL) {
         dataArray
           .filter((e) => e.type === "twopart")
           .forEach((e) => {
-            DOMSelectors.welcome.insertAdjacentHTML(
+            DOMSelectors.cardBack.insertAdjacentHTML(
               "beforeend",
               `<p class="text">${e.setup}<button class="button" id="deliver">Show</button></p>
           
@@ -47,7 +47,6 @@ async function getData(URL) {
               "beforeend",
               `<p class="text">${e.joke}</p>`
             );
-            document.getElementById("deliver").innerHTML = "";
           });
       }
 
@@ -84,8 +83,7 @@ async function dataSafe1(URL2) {
       throw new Error(); //if error
     } else {
       const data = await response.json();
-      const safe = data.jokes.filter((e) => e.safe === true);
-      const result = safe.filter((e) => e.type === "single");
+      const result = data.jokes.filter((e) => e.safe === true);
       console.log(result);
     }
   } catch (error) {

@@ -4,32 +4,64 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>I am Funny</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
+      crossorigin="anonymous"
+    />
+    <title>The Joke Shop</title>
   </head>
   <body>
-    <div id="header">
-      <h1 id="heading">ROFL</h1>
-    </div>
-    <section id="JOTD">
-      <h2 id="h2">Joke of the Day</h2>
-      <div id="jotdJs">
-        <!-- <p>{$e.setup}</p>
-        <button class="button" id="deliver">delivery</button> -->
+    <section id="nav">
+      <p id="logo">TJS</p>
+      <div class="cart">
+        <button class="button" id="cart-btn">
+          <i id="cart-icon" class="fa fa-shopping-cart" aria-hidden="true"></i>
+          Cart
+        </button>
+      </div>
+
+      <div class="form">
+        <form class="search">
+          <div class="input">
+            <input
+              type="number"
+              id="value"
+              placeholder="Search by id"
+              min="0"
+              required
+            />
+            <button class="search-btn" type="button">
+              <i id="search-icon" class="fa fa-search"></i>
+            </button>
+          </div>
+        </form>
       </div>
     </section>
-    <div id="search">
-      <h3>Search By Category</h3>
+
+    <section id="category">
       <button class="button" id="all">All</button>
       <button class="button" id="misc">Miscellaneous</button>
       <button class="button" id="holidays">Holidays</button>
-      <div>
-        <button class="button" id="Christmas">Christmas</button>
-        <button class="button" id="Halloween">Halloween(Spooky)</button>
-      </div>
+      <button class="button" id="Christmas">Christmas</button>
+      <button class="button" id="Halloween">Halloween(Spooky)</button>
       <button class="button" id="puns">Puns</button>
       <button class="button" id="dark">Dark Humor</button>
       <button class="button" id="programming">Programming</button>
-    </div>
+    </section>
+
+    <section id="main">
+      <h1 id="h1">Welcome</h1>
+      <h2>Try searching something</h2>
+      <div id="card">
+        <div class="card-inner">
+          <div class="front"></div>
+          <div class="card-back">
+            <h3 class="h3">TJS</h3>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <div id="user">
       <p>I'm feeling...</p>
