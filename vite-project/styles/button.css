@@ -10,7 +10,6 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: 1.1rem;
     font-weight: 600;
-    line-height: 1;
     padding: 1rem 1.6rem;
     text-align: center;
     transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
@@ -29,4 +28,9 @@
     color: #fff;
   }
 
-  
+  #deliver{
+    display: block;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+  }

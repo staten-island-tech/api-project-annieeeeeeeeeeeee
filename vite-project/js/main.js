@@ -24,8 +24,8 @@ async function getData(URL) {
           .filter((e) => e.type === "twopart")
           .forEach((e) => {
             DOMSelectors.cardBack.insertAdjacentHTML(
-              "beforeend",
-              `<p class="text">${e.setup}<button class="button" id="deliver">Show</button></p>
+              "afterbegin",
+              `<p class="text" id="setup">${e.setup}<button class="button" id="deliver">Show</button></p>
           
           <div class="text" id="delivery"></div>`
             );
