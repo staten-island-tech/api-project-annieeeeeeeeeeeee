@@ -3,7 +3,6 @@
 @import url(categories.css);
 @import url(card.css);
 
-
 html,
 body,
 * {
@@ -19,25 +18,39 @@ body {
   background-color: var(--background);
 }
 
-
 /* colors #fa7aa6, #010375, #FFBC02, #FA0118, #348AA7*/
 
- 
-#main{
-  background-color: #FA0118;
-  height: 50rem;
+#main {
+  background-color: #010375;
+  height: 70rem;
   width: 100%;
   display: inline-block;
 }
 
-#h1{
-  font-size: 
-  11.391rem;
+#h1 {
+  font-size: 11.391rem;
   display: inline-block;
+  float: left;
+  margin-left: 40rem;
+  margin-top: 10rem;
+  font-family: "Playfair Display SC", serif;
+  font-weight: normal;
+  color: white;
 }
 
-.container{
-  display: inline-block;
+#h2 {
+  font-size: 4.236rem;
+  font-family: "EB Garamond", serif;
+  color: white;
+  font-weight: normal;
 }
 
+.container {
+  display: inline-block;
+  margin: auto;
+  align-items: center;
+}
 
+.heart {
+  font-size: 100rem;
+}
