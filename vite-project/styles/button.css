@@ -29,6 +29,25 @@
 #deliver {
   display: block;
   font-size: 1rem;
-  padding: 0.5rem;
   border-radius: 0.8rem;
+  background-color: #fff;
+  border: 0.1rem solid #000000;
+  border-radius: 1.5rem;
+  box-sizing: border-box;
+  color: #0d172a;
+  display: inline-block;
+  height: 2rem;
+  width: 4rem;
+  font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#deliver:hover {
+  background-color: #fa7aa6;
+  color: #fff;
 }

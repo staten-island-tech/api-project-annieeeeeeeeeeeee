@@ -49,7 +49,7 @@ input {
 .search-btn {
   background-color: transparent;
   background-repeat: no-repeat;
-  border: none;
+  border: solid;
   cursor: pointer;
   overflow: hidden;
   outline: none;

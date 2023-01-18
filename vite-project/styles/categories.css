@@ -1,5 +1,7 @@
 #category {
   background-color: #010375;
+  width: 20rem;
+  display: inline-block;
 }
 .button {
   display: inline-block;

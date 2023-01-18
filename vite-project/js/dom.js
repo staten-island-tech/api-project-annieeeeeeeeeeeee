@@ -12,6 +12,8 @@ const DOMSelectors = {
   cardBack: document.getElementById("display"),
   searchBar: document.getElementById("search-bar"),
   userSearch: document.getElementById("value"),
+  card: document.getElementById("card"),
+  cardFront: document.getElementById("front"),
 };
 
 export { DOMSelectors };

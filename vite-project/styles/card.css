@@ -22,8 +22,7 @@
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
-
-.card:hover .card-inner {
+.card-inner.flip {
   transform: rotateY(180deg);
 }
 
@@ -62,6 +61,16 @@
 }
 
 .text {
-  font-size: 1rem;
+  font-size: 3rem;
   margin-top: 2rem;
+  width: 30rem;
+  margin: auto;
+}
+
+#setup {
+  margin-top: 4rem;
+}
+
+#deliver {
+  display: inline-block;
 }

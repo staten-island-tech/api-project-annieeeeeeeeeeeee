@@ -14,10 +14,6 @@ body,
   -webkit-font-smoothing: antialiased;
 }
 
-body {
-  background-color: var(--background);
-}
-
 /* colors #fa7aa6, #010375, #FFBC02, #FA0118, #348AA7*/
 
 #main {
@@ -45,7 +41,7 @@ body {
   font-weight: normal;
 }
 
-.container {
+.left {
   display: inline-block;
   margin: auto;
   align-items: center;

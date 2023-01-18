@@ -24,7 +24,8 @@ async function getData(URL) {
           .forEach((e) => {
             DOMSelectors.cardBack.insertAdjacentHTML(
               "afterbegin",
-              `<p class="text" id="setup">${e.setup}<button class="button" id="deliver">Show</button></p>
+
+              `<div><p class="text" id="setup">${e.setup}<button class="show" id="deliver">Show</button></p></div>
           
           <div class="text" id="delivery"></div>`
             );
@@ -68,7 +69,7 @@ async function getIds(URL2) {
       const idArray = [];
       idArray.push(data.jokes);
       console.log(idArray);
-      const results = idArray.map(({ id }) => id);
+      const results = idArray.forEach((e) => e.map((a) => a.id));
       console.log(results);
     }
   } catch (error) {
@@ -78,6 +79,14 @@ async function getIds(URL2) {
 }
 
 getIds(URL2);
+
+function flipCard() {
+  DOMSelectors.cardFront.addEventListener("click", function () {
+    DOMSelectors.card.classList.toggle("flip");
+  });
+}
+
+flipCard();
 
 /* DOMSelectors.searchBar.addEventListener("submit", function (event) {
   console.log("hey");
