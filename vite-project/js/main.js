@@ -4,7 +4,6 @@ import { DOMSelectors } from "./dom";
 const URL2 =
   "https://raw.githubusercontent.com/Sv443/JokeAPI/master/data/jokes/regular/jokes-en.json";
 
-//const refresh = "https://v2.jokeapi.dev/joke/Any?safe-mode";
 const URL = "https://v2.jokeapi.dev/joke/Any?safe-mode";
 
 async function getData(URL) {
@@ -59,35 +58,28 @@ async function getData(URL) {
 }
 getData(URL);
 
-/* async function getData(URL) {
-  try {
-    const response = await fetch(URL);
-    if (response.status < 200 || response.status > 299) {
-      throw new Error();
-    } else {
-      console.log(response);
-      const data = await response.json();
-      console.log(data);
-      document.getElementById("app").textContent = data.setup;
-    }
-  } catch (error) {
-    console.log(error);
-  }
-} */
-//getData(URL);
-
-async function dataSafe1(URL2) {
+async function getIds(URL2) {
   try {
     const response = await fetch(URL2);
     if (response.status < 200 || response.status > 299) {
-      throw new Error(); //if error
+      throw new Error();
     } else {
       const data = await response.json();
-      const result = data.jokes.filter((e) => e.safe === true);
-      console.log(result);
+      const idArray = [];
+      idArray.push(data.jokes);
+      console.log(idArray);
+      const results = idArray.map(({ id }) => id);
+      console.log(results);
     }
   } catch (error) {
     console.log(error);
+    console.log("uh oh");
   }
 }
-dataSafe1(URL2);
+
+getIds(URL2);
+
+/* DOMSelectors.searchBar.addEventListener("submit", function (event) {
+  console.log("hey");
+  event.preventDefault();
+}); */

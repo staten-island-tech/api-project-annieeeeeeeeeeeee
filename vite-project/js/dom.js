@@ -10,6 +10,8 @@ const DOMSelectors = {
   surprise: document.getElementById("ev"),
   misc: document.getElementById("misc"),
   cardBack: document.getElementById("display"),
+  searchBar: document.getElementById("search-bar"),
+  userSearch: document.getElementById("value"),
 };
 
 export { DOMSelectors };
