@@ -39,11 +39,12 @@ async function getData(URL) {
       }
 
       jotdTwopart();
+
       function jotdSingle() {
         dataArray
           .filter((e) => e.type === "single")
           .forEach((e) => {
-            DOMSelectors.welcome.insertAdjacentHTML(
+            DOMSelectors.cardBack.insertAdjacentHTML(
               "beforeend",
               `<p class="text">${e.joke}</p>`
             );
@@ -66,13 +67,23 @@ async function getIds(URL2) {
       throw new Error();
     } else {
       const data = await response.json();
-      const idArray = [];
-      idArray.push(data.jokes);
-      console.log(idArray);
-      const results = idArray.forEach((e) => e.map((a) => a.id));
-      console.log(results);
+      const jokes = data.jokes;
+      //console.log(jokes.joke); //keeps printing undefined
+
+      const userInput = DOMSelectors.userInput.value;
+      DOMSelectors.searchBar.addEventListener("click", function (e) {
+        const hey =
+          jokes.joke.filter((e) => e.includes(userInput)) ||
+          jokes.setup.filter((e) => e.includes(userInput));
+        console.log(hey);
+      });
     }
   } catch (error) {
+    /*   DOMSelectors.searchBar.addEventListener("submit", function (event) {
+        console.log("hey");
+        event.preventDefault();
+        search();
+      }); */
     console.log(error);
     console.log("uh oh");
   }
@@ -87,8 +98,3 @@ function flipCard() {
 }
 
 flipCard();
-
-/* DOMSelectors.searchBar.addEventListener("submit", function (event) {
-  console.log("hey");
-  event.preventDefault();
-}); */

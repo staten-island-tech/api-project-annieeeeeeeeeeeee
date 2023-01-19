@@ -31,9 +31,9 @@
         <form class="search" id="search-bar">
           <div class="input">
             <input
-              type="number"
-              id="value"
-              placeholder="Search by id"
+              type="text"
+              id="userInput"
+              placeholder="Search keywords..."
               min="0"
               required
             />
@@ -48,17 +48,7 @@
     <section id="main">
       <div class="left">
         <h1 id="h1">Welcome</h1>
-        <h2 id="h2">Search by Category</h2>
-        <section id="category">
-          <button class="button" id="all">All</button>
-          <button class="button" id="misc">Miscellaneous</button>
-          <button class="button" id="holidays">Holidays</button>
-          <button class="button" id="Christmas">Christmas</button>
-          <button class="button" id="Halloween">Halloween</button>
-          <button class="button" id="puns">Puns</button>
-          <button class="button" id="dark">Dark Humor</button>
-          <button class="button" id="programming">Programming</button>
-        </section>
+        <h2 id="h2">Try searching something</h2>
       </div>
 
       <div class="card">
@@ -71,13 +61,17 @@
       </div>
     </section>
 
-    <div id="user">
-      <p>I'm feeling...</p>
-      <button class="button" id="spooky">Spooky</button>
+    <section id="category">
+      <button class="button" id="all">All</button>
+      <button class="button" id="misc">Miscellaneous</button>
+      <button class="button" id="holidays">Holidays</button>
+      <button class="button" id="Christmas">Christmas</button>
+      <button class="button" id="Halloween">Halloween</button>
+      <button class="button" id="puns">Puns</button>
       <button class="button" id="dark">Dark Humor</button>
-      <button class="button" id="ev">Surprise Me</button>
-    </div>
-    <div id="app"></div>
+      <button class="button" id="programming">Programming</button>
+    </section>
+
     <script type="module" src="./js/main.js"></script>
   </body>
 </html>
