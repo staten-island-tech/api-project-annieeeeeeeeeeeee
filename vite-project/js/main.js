@@ -46,7 +46,7 @@ async function getData(URL) {
           .forEach((e) => {
             DOMSelectors.cardBack.insertAdjacentHTML(
               "beforeend",
-              `<p class="text">${e.joke}</p>`
+              `<p class="text" id="joke">${e.joke}</p>`
             );
           });
       }
@@ -90,6 +90,45 @@ async function getIds(URL2) {
 }
 
 getIds(URL2);
+
+async function displayJokes(URL2) {
+  try {
+    const response = await fetch(URL2);
+    if (response.status < 200 || response.status > 299) {
+      throw new Error();
+    } else {
+      const data = await response.json();
+      const jokes = data.jokes;
+      //console.log(jokes.joke); //keeps printing undefined
+      function printJokesSingle() {
+        jokes
+          .filter((e) => e.type === "single")
+          .forEach((e) => {
+            console.log(e);
+            DOMSelectors.displaySection.insertAdjacentHTML(
+              "afterbegin",
+              `
+        <div>
+          <p>${e.joke}</p>
+        </div>`
+            );
+          });
+      }
+
+      printJokesSingle();
+    }
+  } catch (error) {
+    /*   DOMSelectors.searchBar.addEventListener("submit", function (event) {
+        console.log("hey");
+        event.preventDefault();
+        search();
+      }); */
+    console.log(error);
+    console.log("uh oh");
+  }
+}
+
+displayJokes(URL2);
 
 function flipCard() {
   DOMSelectors.cardFront.addEventListener("click", function () {

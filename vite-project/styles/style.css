@@ -39,6 +39,7 @@ body,
   font-family: "EB Garamond", serif;
   color: white;
   font-weight: normal;
+  margin-left: 40rem;
 }
 
 .left {
@@ -47,6 +48,18 @@ body,
   align-items: center;
 }
 
+#form-main {
+  margin-left: 40rem;
+  float: left;
+}
 .heart {
   font-size: 100rem;
+}
+
+#search-icon-main {
+  position: absolute;
+  top: 44rem;
+  left: 41.5rem;
+  font-size: 1.2rem;
+  color: red;
 }

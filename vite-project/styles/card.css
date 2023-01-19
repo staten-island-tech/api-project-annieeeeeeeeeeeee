@@ -48,18 +48,6 @@
   border-radius: 1.7rem;
 }
 
-.h3 {
-  color: #fa0118;
-  font-size: 1.5rem;
-  position: absolute;
-  top: 33rem;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  text-align: center;
-}
-
 .text {
   font-size: 3rem;
   margin-top: 2rem;
@@ -67,10 +55,17 @@
   margin: auto;
 }
 
-#setup {
+#setup,
+#joke {
   margin-top: 4rem;
 }
 
 #deliver {
   display: inline-block;
+}
+
+#yes-fav {
+  position: absolute;
+  top: 52.4rem;
+  right: 2.4rem;
 }

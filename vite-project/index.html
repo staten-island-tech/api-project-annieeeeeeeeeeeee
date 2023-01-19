@@ -49,13 +49,32 @@
       <div class="left">
         <h1 id="h1">Welcome</h1>
         <h2 id="h2">Try searching something</h2>
+        <div class="form" id="form-main">
+          <form class="search" id="search-bar">
+            <div class="input">
+              <input
+                type="text"
+                id="userInput"
+                placeholder="Search keywords..."
+                min="0"
+                required
+              />
+              <button class="search-btn" type="button">
+                <i id="search-icon-main" class="fa fa-search"></i>
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
 
       <div class="card">
         <div class="card-inner" id="card">
           <div class="card-front" id="front"></div>
           <div class="card-back" id="display">
-            <h3 class="h3">TJK</h3>
+            <button class="button" id="yes-fav">
+              <i class="far fa-heart" aria-hidden="true" id="fav-icon"></i>
+              Add to Favorites
+            </button>
           </div>
         </div>
       </div>
@@ -72,6 +91,7 @@
       <button class="button" id="programming">Programming</button>
     </section>
 
+    <div id="display-section"></div>
     <script type="module" src="./js/main.js"></script>
   </body>
 </html>

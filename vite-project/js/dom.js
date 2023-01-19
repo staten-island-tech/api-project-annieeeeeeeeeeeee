@@ -14,6 +14,7 @@ const DOMSelectors = {
   userInput: document.getElementById("userInput"),
   card: document.getElementById("card"),
   cardFront: document.getElementById("front"),
+  displaySection: document.getElementById("display-section"),
 };
 
 export { DOMSelectors };
