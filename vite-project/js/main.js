@@ -60,7 +60,7 @@ async function getData(URL) {
 }
 getData(URL);
 
-async function getIds(URL2) {
+/* async function getIds(URL2) {
   try {
     const response = await fetch(URL2);
     if (response.status < 200 || response.status > 299) {
@@ -79,17 +79,17 @@ async function getIds(URL2) {
       });
     }
   } catch (error) {
-    /*   DOMSelectors.searchBar.addEventListener("submit", function (event) {
-        console.log("hey");
-        event.preventDefault();
-        search();
-      }); */
+    DOMSelectors.searchBar.addEventListener("submit", function (event) {
+      console.log("hey");
+      event.preventDefault();
+      search();
+    });
     console.log(error);
     console.log("uh oh");
   }
 }
 
-getIds(URL2);
+getIds(URL2); */
 
 async function displayJokes(URL2) {
   try {
@@ -105,17 +105,31 @@ async function displayJokes(URL2) {
           .filter((e) => e.type === "single")
           .forEach((e) => {
             console.log(e);
-            DOMSelectors.displaySection.insertAdjacentHTML(
+            DOMSelectors.listJokes1.insertAdjacentHTML(
               "afterbegin",
               `
-        <div>
-          <p>${e.joke}</p>
-        </div>`
+               <li class="joke-display">${e.joke}</li>
+        `
             );
           });
       }
 
       printJokesSingle();
+
+      function printSetup() {
+        jokes
+          .filter((e) => e.type === "twopart")
+          .forEach((e) => {
+            DOMSelectors.listJokes2.insertAdjacentHTML(
+              "beforeend",
+              `
+              <li class="joke-display">${e.setup + " " + e.delivery}</li>
+              `
+            );
+          });
+      }
+
+      printSetup();
     }
   } catch (error) {
     /*   DOMSelectors.searchBar.addEventListener("submit", function (event) {

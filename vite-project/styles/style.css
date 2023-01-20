@@ -12,6 +12,7 @@ body,
   font-size: 62.5%; /* 10px*/
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  list-style-type: inside;
 }
 
 /* colors #fa7aa6, #010375, #FFBC02, #FA0118, #348AA7*/
@@ -23,7 +24,7 @@ body,
   display: inline-block;
 }
 
-#h1 {
+h1 {
   font-size: 11.391rem;
   display: inline-block;
   float: left;
@@ -34,12 +35,18 @@ body,
   color: white;
 }
 
-#h2 {
+h2 {
   font-size: 4.236rem;
   font-family: "EB Garamond", serif;
   color: white;
   font-weight: normal;
   margin-left: 40rem;
+}
+
+h4 {
+  font-size: 4.236rem;
+  margin-left: 40rem;
+  margin-top: 5rem;
 }
 
 .left {
@@ -62,4 +69,23 @@ body,
   left: 41.5rem;
   font-size: 1.2rem;
   color: red;
+}
+
+.joke-display {
+  font-size: 2rem;
+  margin-left: 42rem;
+  width: 111rem;
+  padding: 1rem;
+  background-color: red;
+  margin-top: 2rem;
+  border-radius: 1rem;
+}
+#setup-display {
+  float: left;
+  display: inline-block;
+}
+
+#display-delivery {
+  display: inline-block;
+  float: right;
 }
