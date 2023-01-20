@@ -20,7 +20,7 @@ async function getData(URL) {
       console.log(dataArray);
       function jotdTwopart() {
         dataArray
-          .filter((e) => e.type === "twopart")
+          .filter((e) => e.type === "twopart" && e.safe === true)
           .forEach((e) => {
             DOMSelectors.cardBack.insertAdjacentHTML(
               "afterbegin",
@@ -42,7 +42,7 @@ async function getData(URL) {
 
       function jotdSingle() {
         dataArray
-          .filter((e) => e.type === "single")
+          .filter((e) => e.type === "single" && e.safe === true)
           .forEach((e) => {
             DOMSelectors.cardBack.insertAdjacentHTML(
               "beforeend",
@@ -102,7 +102,7 @@ async function displayJokes(URL2) {
       //console.log(jokes.joke); //keeps printing undefined
       function printJokesSingle() {
         jokes
-          .filter((e) => e.type === "single")
+          .filter((e) => e.type === "single" && e.safe === true)
           .forEach((e) => {
             console.log(e);
             DOMSelectors.listJokes1.insertAdjacentHTML(
