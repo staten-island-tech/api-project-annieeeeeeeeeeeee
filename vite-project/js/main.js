@@ -60,23 +60,22 @@ async function getData(URL) {
 }
 getData(URL);
 
-/* async function getIds(URL2) {
+async function search(URL2) {
   try {
     const response = await fetch(URL2);
     if (response.status < 200 || response.status > 299) {
       throw new Error();
     } else {
       const data = await response.json();
-      const jokes = data.jokes;
-      //console.log(jokes.joke); //keeps printing undefined
-
+      const jokes = [];
+      jokes.push(data.jokes);
+      console.log(jokes);
       const userInput = DOMSelectors.userInput.value;
-      DOMSelectors.searchBar.addEventListener("click", function (e) {
-        const hey =
-          jokes.joke.filter((e) => e.includes(userInput)) ||
-          jokes.setup.filter((e) => e.includes(userInput));
-        console.log(hey);
-      });
+      const singlesResult = jokes.filter(
+        (e) =>
+          e.safe === true && e.type === "single" && e.joke.includes(userInput)
+      );
+      console.log(singlesResult);
     }
   } catch (error) {
     DOMSelectors.searchBar.addEventListener("submit", function (event) {
@@ -89,7 +88,7 @@ getData(URL);
   }
 }
 
-getIds(URL2); */
+search(URL2);
 
 async function displayJokes(URL2) {
   try {
@@ -99,12 +98,10 @@ async function displayJokes(URL2) {
     } else {
       const data = await response.json();
       const jokes = data.jokes;
-      //console.log(jokes.joke); //keeps printing undefined
       function printJokesSingle() {
         jokes
           .filter((e) => e.type === "single" && e.safe === true)
           .forEach((e) => {
-            console.log(e);
             DOMSelectors.listJokes1.insertAdjacentHTML(
               "afterbegin",
               `
@@ -132,11 +129,6 @@ async function displayJokes(URL2) {
       printSetup();
     }
   } catch (error) {
-    /*   DOMSelectors.searchBar.addEventListener("submit", function (event) {
-        console.log("hey");
-        event.preventDefault();
-        search();
-      }); */
     console.log(error);
     console.log("uh oh");
   }
