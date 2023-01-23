@@ -70,19 +70,23 @@ async function search(URL2) {
       const jokes = [];
       jokes.push(data.jokes);
       console.log(jokes);
+      function getSingles() {
+        const singleOnly = jokes.filter(
+          (e) => e.type === "single" && e.safe === true
+        );
+      }
       const userInput = DOMSelectors.userInput.value;
-      const singlesResult = jokes.filter(
-        (e) =>
-          e.safe === true && e.type === "single" && e.joke.includes(userInput)
-      );
-      console.log(singlesResult);
+
+      /*    DOMSelectors.searchBar.addEventListener("submit", function (event) {
+        const singlesResult = jokes.filter(
+          (e) =>
+            e.safe === true && e.type === "single" && e.joke.includes(userInput)
+        );
+        console.log(singlesResult);
+        event.preventDefault();
+      }); */
     }
   } catch (error) {
-    DOMSelectors.searchBar.addEventListener("submit", function (event) {
-      console.log("hey");
-      event.preventDefault();
-      search();
-    });
     console.log(error);
     console.log("uh oh");
   }
