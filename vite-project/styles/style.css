@@ -1,5 +1,5 @@
 @import url(button.css);
-@import url(nav.css);
+@import url(search.css);
 @import url(categories.css);
 @import url(card.css);
 
@@ -16,6 +16,21 @@ body,
 }
 
 /* colors #fa7aa6, #010375, #FFBC02, #FA0118, #348AA7*/
+
+#nav {
+  background-color: #ffffff;
+  width: 100%;
+}
+
+#logo {
+  color: #ffbc02;
+  font-size: 3rem;
+  padding-bottom: 1rem;
+  margin: auto;
+  text-align: center;
+  font-weight: normal;
+  font-family: "Playfair Display SC", serif;
+}
 
 #main {
   background-color: #010375;

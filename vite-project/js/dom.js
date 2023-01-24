@@ -17,6 +17,7 @@ const DOMSelectors = {
   listJokes1: document.getElementById("list-jokes-singles"),
   listJokes2: document.getElementById("list-jokes-twopart"),
   deliveryDisplay: document.getElementById("delivery-display-section"),
+  searchDisplay: document.getElementById("searchDisplay"),
 };
 
 export { DOMSelectors };

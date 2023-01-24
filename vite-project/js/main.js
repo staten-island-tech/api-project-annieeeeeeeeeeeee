@@ -60,40 +60,6 @@ async function getData(URL) {
 }
 getData(URL);
 
-async function search(URL2) {
-  try {
-    const response = await fetch(URL2);
-    if (response.status < 200 || response.status > 299) {
-      throw new Error();
-    } else {
-      const data = await response.json();
-      const jokes = [];
-      jokes.push(data.jokes);
-      console.log(jokes);
-      function getSingles() {
-        const singleOnly = jokes.filter(
-          (e) => e.type === "single" && e.safe === true
-        );
-      }
-      const userInput = DOMSelectors.userInput.value;
-
-      /*    DOMSelectors.searchBar.addEventListener("submit", function (event) {
-        const singlesResult = jokes.filter(
-          (e) =>
-            e.safe === true && e.type === "single" && e.joke.includes(userInput)
-        );
-        console.log(singlesResult);
-        event.preventDefault();
-      }); */
-    }
-  } catch (error) {
-    console.log(error);
-    console.log("uh oh");
-  }
-}
-
-search(URL2);
-
 async function displayJokes(URL2) {
   try {
     const response = await fetch(URL2);
@@ -139,6 +105,43 @@ async function displayJokes(URL2) {
 }
 
 displayJokes(URL2);
+
+async function search(URL2) {
+  try {
+    const response = await fetch(URL2);
+    if (response.status < 200 || response.status > 299) {
+      throw new Error();
+    } else {
+      const data = await response.json();
+      const jokes = data.jokes;
+
+      function search() {
+        const userInput = DOMSelectors.userInput.value;
+        console.log(userInput);
+
+        jokes
+          .filter((e) => e.id === +userInput)
+          .forEach((e) => {
+            DOMSelectors.searchDisplay.insertAdjacentHTML(
+              "afterbegin",
+              `<p>${e.joke}</p>`
+            );
+          });
+      }
+
+      DOMSelectors.searchBar.addEventListener("submit", function (e) {
+        search();
+        //displaySearch(results);
+        e.preventDefault();
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    console.log("uh oh");
+  }
+}
+
+search(URL2);
 
 function flipCard() {
   DOMSelectors.cardFront.addEventListener("click", function () {
