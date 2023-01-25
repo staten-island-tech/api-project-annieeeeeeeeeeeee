@@ -1,14 +1,14 @@
 import "../styles/style.css";
 import { DOMSelectors } from "./dom";
 
-const URL2 =
+const allURL =
   "https://raw.githubusercontent.com/Sv443/JokeAPI/master/data/jokes/regular/jokes-en.json";
 
-const URL = "https://v2.jokeapi.dev/joke/Any?safe-mode";
+const randomURL = "https://v2.jokeapi.dev/joke/Any?safe-mode";
 
-async function getData(URL) {
+async function getData(randomURL) {
   try {
-    const response = await fetch(URL);
+    const response = await fetch(randomURL);
     if (response.status < 200 || response.status > 299) {
       throw new Error();
     } else {
@@ -22,7 +22,7 @@ async function getData(URL) {
         dataArray
           .filter((e) => e.type === "twopart" && e.safe === true)
           .forEach((e) => {
-            DOMSelectors.cardBack.insertAdjacentHTML(
+            DOMSelectors.card.insertAdjacentHTML(
               "afterbegin",
 
               `<div><p class="text" id="setup">${e.setup}<button class="show" id="deliver">Show</button></p></div>
@@ -58,45 +58,33 @@ async function getData(URL) {
     console.log("uh oh");
   }
 }
-getData(URL);
+getData(randomURL);
 
-async function displayJokes(URL2) {
+async function displayJokes(allURL) {
   try {
-    const response = await fetch(URL2);
+    const response = await fetch(allURL);
     if (response.status < 200 || response.status > 299) {
       throw new Error();
     } else {
       const data = await response.json();
       const jokes = data.jokes;
-      function printJokesSingle() {
+      function printJokesAll() {
         jokes
-          .filter((e) => e.type === "single" && e.safe === true)
+          .filter((e) => e.safe === true)
           .forEach((e) => {
-            DOMSelectors.listJokes1.insertAdjacentHTML(
+            DOMSelectors.listJokes.insertAdjacentHTML(
               "afterbegin",
-              `
-               <li class="joke-display">${e.joke}</li>
+              `<div class="cards">
+              <p class="display-text" id="id">id: ${e.id}</p>
+              <p class="display-text">${e.joke || e.setup}</p>
+              <p class= "display-text">${e.delivery || ""}</p>
+              </div>
         `
             );
           });
       }
 
-      printJokesSingle();
-
-      function printSetup() {
-        jokes
-          .filter((e) => e.type === "twopart")
-          .forEach((e) => {
-            DOMSelectors.listJokes2.insertAdjacentHTML(
-              "beforeend",
-              `
-              <li class="joke-display">${e.setup + " " + e.delivery}</li>
-              `
-            );
-          });
-      }
-
-      printSetup();
+      printJokesAll();
     }
   } catch (error) {
     console.log(error);
@@ -104,11 +92,11 @@ async function displayJokes(URL2) {
   }
 }
 
-displayJokes(URL2);
+displayJokes(allURL);
 
-async function search(URL2) {
+async function search(allURL) {
   try {
-    const response = await fetch(URL2);
+    const response = await fetch(allURL);
     if (response.status < 200 || response.status > 299) {
       throw new Error();
     } else {
@@ -117,21 +105,22 @@ async function search(URL2) {
 
       function search() {
         const userInput = DOMSelectors.userInput.value;
-        console.log(userInput);
-
         jokes
           .filter((e) => e.id === +userInput)
           .forEach((e) => {
             DOMSelectors.searchDisplay.insertAdjacentHTML(
               "afterbegin",
-              `<p>${e.joke}</p>`
+              `<div class="search-results"><p class="search-result">${
+                e.joke || e.setup
+              }</p><p id="search-result-delivery">${e.delivery || ""}</p></div>
+              `
             );
           });
       }
 
       DOMSelectors.searchBar.addEventListener("submit", function (e) {
+        DOMSelectors.searchDisplay.textContent = "";
         search();
-        //displaySearch(results);
         e.preventDefault();
       });
     }
@@ -141,7 +130,7 @@ async function search(URL2) {
   }
 }
 
-search(URL2);
+search(allURL);
 
 function flipCard() {
   DOMSelectors.cardFront.addEventListener("click", function () {

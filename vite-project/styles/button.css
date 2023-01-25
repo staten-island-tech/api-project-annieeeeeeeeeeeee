@@ -22,17 +22,6 @@
   color: #fff;
 }
 
-#fav-btn:hover {
-  background-color: #ffbc02;
-  color: #fff;
-}
-
-#yes-fav {
-  width: 13rem;
-}
-#yes-fav:hover {
-  background-color: #fa0118;
-}
 
 #deliver {
   display: block;
@@ -58,4 +47,12 @@
 #deliver:hover {
   background-color: #fa7aa6;
   color: #fff;
+}
+
+#search-btn{
+  width: 7rem;
+  background-color: transparent;
+  border-color: white;
+  color: white;
+  margin-left: 2rem;
 }

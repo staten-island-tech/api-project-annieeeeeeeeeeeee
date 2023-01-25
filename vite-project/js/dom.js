@@ -14,8 +14,7 @@ const DOMSelectors = {
   userInput: document.getElementById("userInput"),
   card: document.getElementById("card"),
   cardFront: document.getElementById("front"),
-  listJokes1: document.getElementById("list-jokes-singles"),
-  listJokes2: document.getElementById("list-jokes-twopart"),
+  listJokes: document.getElementById("display-section"),
   deliveryDisplay: document.getElementById("delivery-display-section"),
   searchDisplay: document.getElementById("searchDisplay"),
 };

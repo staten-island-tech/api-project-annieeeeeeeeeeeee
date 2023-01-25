@@ -19,7 +19,7 @@
   </head>
   <body>
     <section id="nav">
-      <h1 id="logo">TJS</h1>
+      <h1 id="logo">The Joke Shop</h1>
       
       </div>
     </section>
@@ -27,39 +27,36 @@
     <section id="main">
       <div class="left">
         <h2 id="h1">Welcome</h2>
-        <h3 id="h2">Try searching something</h3>
+        <!-- <h3 id="h2">Try searching something</h3> -->
       <div class="form">
         <form class="search" id="search-bar">
+          <label for="userInput" id="label">Search</label>
           <div class="input">
             <input
               type="number"
               id="userInput"
-              placeholder="Search keywords..."
+              placeholder="Search by id..."
               min="0"
               required
-            />
-            <button class="search-btn" type="button">
-              <i id="search-icon" class="fa fa-search"></i>
-            </button>
+            /> 
+            <input type="submit" value="Submit" class="button" id="search-btn"/>
           </div>
+         
         </form>
         </div>
         <div id="searchDisplay">
-          console.log()
         </div>
       </div>
 
       <div class="card">
-        <div class="card-inner" id="card">
-          <div class="card-front" id="front"></div>
-          <div class="card-back" id="display">
-            <button class="button" id="yes-fav">
-              <i class="far fa-heart" aria-hidden="true" id="fav-icon"></i>
-              Add to Favorites
-            </button>
+        <h3>Randomizer</h3>
+        <div class="randomizer" id="card">
+            
           </div>
+          <button class="button" id="next-btn">
+              Next
+            </button>
         </div>
-      </div>
     </section>
 
     <section id="category">
@@ -74,10 +71,6 @@
     </section>
 
     <div id="display-section">
-      <h4>Single</h4>
-      <ol id="list-jokes-singles"></ol>
-      <h4>Two Part</h4>
-      <ol id="list-jokes-twopart"></ol>
     </div>
     <script type="module" src="./js/main.js"></script>
   </body>

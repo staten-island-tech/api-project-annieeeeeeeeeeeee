@@ -1,14 +1,19 @@
-
-
 .form {
-  display: inline-block;
-  padding-top: 1rem;
   padding-bottom: 1rem;
-  float: right;
-  margin-right: 2rem;
+  margin-left: 40rem;
+}
+
+#label {
+  font-size: 4.236rem;
+  font-family: "EB Garamond", serif;
+  color: white;
+  font-weight: normal;
 }
 
 input {
+  margin-top: 2rem;
+  display: inline-block;
+  float: left;
   width: 35rem;
   height: 3.5rem;
   font-size: 1.2rem;
@@ -18,19 +23,4 @@ input {
   border-color: white;
 }
 
-.search-btn {
-  background-color: transparent;
-  background-repeat: no-repeat;
-  border: none;
-  cursor: pointer;
-  overflow: hidden;
-  outline: none;
-}
 
-#search-icon {
-  font-size: 1.2rem;
-  position: absolute;
-  left: 145.25rem;
-  top: 4.7rem;
-  color: red;
-}

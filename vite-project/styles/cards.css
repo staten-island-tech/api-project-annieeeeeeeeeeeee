@@ -1,0 +1,33 @@
+#display-section{
+    display: flex;
+    width: 85%;
+    justify-content: space-around;
+    flex-direction: row;
+    margin: auto;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.cards{
+    border: solid;
+    border-width: 0.5px;
+    height: 40rem;
+    width: 40rem;
+    margin-top: 6rem;
+    border-radius: 2rem;;
+
+}
+
+#id{
+    text-align: center;
+    width: 35rem;
+    margin-top: 2rem;
+    color: 
+}
+.display-text{
+    font-size: 2rem;
+    width: 30rem;
+    padding-top: 2rem;
+    margin: auto;
+    text-align: center;
+    word-wrap: break-word;
+}

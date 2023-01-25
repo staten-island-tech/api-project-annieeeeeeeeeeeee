@@ -1,51 +1,18 @@
+h3{
+  font-size: 6.854rem;
+  font-family: "Playfair Display SC", serif;
+  font-weight: normal;
+}
 .card {
   display: inline-block;
   margin-right: 20rem;
-  margin-top: 3rem;
+  margin-top: 12rem;
   float: right;
-  background-color: transparent;
-  width: 40rem;
-  height: 58.4rem;
-  border-radius: 1.7rem;
-}
-
-#front-img {
-  width: 25rem;
-  border-radius: 1.7rem;
-}
-
-.card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-.card-inner.flip {
-  transform: rotateY(180deg);
-}
-
-.card-front,
-.card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden; /* Safari */
-  backface-visibility: hidden;
-}
-
-.card-front {
-  background-image: url(card.jpg);
-  background-size: cover;
-  color: black;
-  border-radius: 1.7rem;
-}
-
-.card-back {
+  width: 60rem;
+  height: 40rem;
   background-color: white;
-  transform: rotateY(180deg);
   border-radius: 1.7rem;
+  
 }
 
 .text {
@@ -64,8 +31,8 @@
   display: inline-block;
 }
 
-#yes-fav {
-  position: absolute;
-  top: 52.4rem;
-  right: 2.4rem;
+#next-btn{
+  margin-top: 25rem;
+  float: right;
+  margin-right: 2rem;
 }
