@@ -2,6 +2,7 @@ h3{
   font-size: 6.854rem;
   font-family: "Playfair Display SC", serif;
   font-weight: normal;
+  text-align: center;
 }
 .card {
   display: inline-block;
@@ -11,8 +12,7 @@ h3{
   width: 60rem;
   height: 40rem;
   background-color: white;
-  border-radius: 1.7rem;
-  
+  border-radius: 2rem;
 }
 
 .text {

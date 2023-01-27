@@ -1,7 +1,7 @@
 @import url(button.css);
 @import url(search.css);
 @import url(categories.css);
-@import url(card.css);
+@import url(randomizer.css);
 @import url(cards.css);
 
 html,
@@ -58,7 +58,6 @@ h2 {
   color: var(--yellow);
 }
 
-
 .left {
   display: inline-block;
   margin: auto;
@@ -74,24 +73,6 @@ h2 {
 }
 
 
-/* .joke-display {
-  font-size: 2rem;
-  width: 100%;
-  margin-left: 2rem;
-  margin-right: 2rem;
-  padding: 1rem;
-  margin-top: 2rem;
-
-}
-
-#left-align{
-  float: left;
-  font-size: 2rem;
-}
-#right-align{
-  float: right;
-  font-size: 2rem;
-} */
 #setup-display {
   float: left;
   display: inline-block;
