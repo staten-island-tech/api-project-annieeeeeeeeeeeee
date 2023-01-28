@@ -1,8 +1,9 @@
 h3{
-  font-size: 6.854rem;
+  font-size: 2rem;
   font-family: "Playfair Display SC", serif;
   font-weight: normal;
   text-align: center;
+  margin-top: 5rem;
 }
 .card {
   display: inline-block;
@@ -16,10 +17,12 @@ h3{
 }
 
 .text {
-  font-size: 3rem;
+  font-size: 2rem;
   margin-top: 2rem;
-  width: 30rem;
+  width: 45rem;
   margin: auto;
+  wrap: break-word;
+  text-align: center;
 }
 
 #setup,
@@ -27,12 +30,12 @@ h3{
   margin-top: 4rem;
 }
 
-#deliver {
-  display: inline-block;
+#delivery{
+  margin-top: 1.5rem;
+  color: var(--blue);
 }
-
 #next-btn{
-  margin-top: 25rem;
-  float: right;
-  margin-right: 2rem;
+  position: absolute;
+  right: 23rem;
+  top: 55rem;
 }

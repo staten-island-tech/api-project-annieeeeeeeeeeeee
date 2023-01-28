@@ -25,7 +25,9 @@ async function getData(randomURL) {
             DOMSelectors.card.insertAdjacentHTML(
               "afterbegin",
 
-              `<div><p class="text" id="setup">${e.setup}<button class="show" id="deliver">Show</button></p></div>
+              `<div><p class="text" id="setup">${e.setup}</p></div>
+              <div id="deliver-container"><button class="show" id="deliver">Show</button></div>
+              
           
           <div class="text" id="delivery"></div>`
             );
@@ -33,7 +35,7 @@ async function getData(randomURL) {
               .getElementById("deliver")
               .addEventListener("click", function () {
                 document.getElementById("delivery").textContent = e.delivery;
-                document.getElementById("deliver").textContent = "Hide";
+                document.getElementById("deliver-container").innerHTML = "";
               });
           });
       }
@@ -44,7 +46,7 @@ async function getData(randomURL) {
         dataArray
           .filter((e) => e.type === "single" && e.safe === true)
           .forEach((e) => {
-            DOMSelectors.cardBack.insertAdjacentHTML(
+            DOMSelectors.card.insertAdjacentHTML(
               "beforeend",
               `<p class="text" id="joke">${e.joke}</p>`
             );
@@ -52,10 +54,18 @@ async function getData(randomURL) {
       }
 
       jotdSingle();
+
+      DOMSelectors.next.addEventListener("click", function () {
+        location.reload();
+      });
     }
   } catch (error) {
     console.log(error);
     console.log("uh oh");
+    DOMSelectors.card.insertAdjacentHTML(
+      "beforeend",
+      `<p class="text" id="erro">Oops an error has occurred. Try refreshing the page.</p>`
+    );
   }
 }
 getData(randomURL);
@@ -68,27 +78,105 @@ async function displayJokes(allURL) {
     } else {
       const data = await response.json();
       const jokes = data.jokes;
+
+      function insertHTML(jokes) {
+        DOMSelectors.listJokes.insertAdjacentHTML(
+          "afterbegin",
+          `<div class="cards">
+          <p class="display-text" id="id">id: ${jokes.id}</p>
+          <p class="display-text">${jokes.joke || jokes.setup}</p>
+          <p class= "display-text">${jokes.delivery || ""}</p>
+          </div>
+    `
+        );
+      }
       function printJokesAll() {
+        DOMSelectors.listJokes.innerHTML = " ";
         jokes
           .filter((e) => e.safe === true)
           .forEach((e) => {
-            DOMSelectors.listJokes.insertAdjacentHTML(
-              "afterbegin",
-              `<div class="cards">
-              <p class="display-text" id="id">id: ${e.id}</p>
-              <p class="display-text">${e.joke || e.setup}</p>
-              <p class= "display-text">${e.delivery || ""}</p>
-              </div>
-        `
-            );
+            insertHTML(e);
           });
       }
 
       printJokesAll();
+
+      DOMSelectors.all.addEventListener("click", function () {
+        printJokesAll();
+      });
+
+      function printMisc() {
+        DOMSelectors.listJokes.innerHTML = " ";
+        jokes
+          .filter((e) => e.safe === true && e.category === "Misc")
+          .forEach((e) => {
+            insertHTML(e);
+          });
+      }
+
+      DOMSelectors.misc.addEventListener("click", function () {
+        printMisc();
+      });
+
+      function printProgramming() {
+        DOMSelectors.listJokes.innerHTML = " ";
+        jokes
+          .filter((e) => e.safe === true && e.category === "Programming")
+          .forEach((e) => {
+            insertHTML(e);
+          });
+      }
+
+      DOMSelectors.prog.addEventListener("click", function () {
+        printProgramming();
+      });
+
+      function printPuns() {
+        DOMSelectors.listJokes.innerHTML = " ";
+        jokes
+          .filter((e) => e.safe === true && e.category === "Pun")
+          .forEach((e) => {
+            insertHTML(e);
+          });
+      }
+
+      DOMSelectors.puns.addEventListener("click", function () {
+        printPuns();
+      });
+
+      function printHallow() {
+        DOMSelectors.listJokes.innerHTML = " ";
+        jokes
+          .filter((e) => e.safe === true && e.category === "Spooky")
+          .forEach((e) => {
+            insertHTML(e);
+          });
+      }
+
+      DOMSelectors.hallow.addEventListener("click", function () {
+        printHallow();
+      });
+
+      function printChristmas() {
+        DOMSelectors.listJokes.innerHTML = " ";
+        jokes
+          .filter((e) => e.safe === true && e.category === "Christmas")
+          .forEach((e) => {
+            insertHTML(e);
+          });
+      }
+
+      DOMSelectors.christmas.addEventListener("click", function () {
+        printChristmas();
+      });
     }
   } catch (error) {
     console.log(error);
     console.log("uh oh");
+    DOMSelectors.card.insertAdjacentHTML(
+      "beforeend",
+      `<p class="text" id="erro">Oops an error has occurred. Try refreshing the page.</p>`
+    );
   }
 }
 
@@ -106,13 +194,16 @@ async function search(allURL) {
       function search() {
         const userInput = DOMSelectors.userInput.value;
         jokes
-          .filter((e) => e.id === +userInput)
+          .filter((e) => e.id === +userInput && e.safe === true)
           .forEach((e) => {
             DOMSelectors.searchDisplay.insertAdjacentHTML(
               "afterbegin",
-              `<div class="search-results"><p class="search-result">${
-                e.joke || e.setup
-              }</p><p id="search-result-delivery">${e.delivery || ""}</p></div>
+              `<div class="search-results">
+              <p class="search-result">${e.joke || e.setup}</p>
+              <p  class="search-result" id="search-result-delivery">${
+                e.delivery || ""
+              }</p>
+              </div>
               `
             );
           });
@@ -122,20 +213,17 @@ async function search(allURL) {
         DOMSelectors.searchDisplay.textContent = "";
         search();
         e.preventDefault();
+        DOMSelectors.userInput.value = "";
       });
     }
   } catch (error) {
     console.log(error);
     console.log("uh oh");
+    DOMSelectors.card.insertAdjacentHTML(
+      "beforeend",
+      `<p class="text" id="erro">Oops an error has occurred. Try refreshing the page.</p>`
+    );
   }
 }
 
 search(allURL);
-
-function flipCard() {
-  DOMSelectors.cardFront.addEventListener("click", function () {
-    DOMSelectors.card.classList.toggle("flip");
-  });
-}
-
-flipCard();

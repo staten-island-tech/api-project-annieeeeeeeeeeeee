@@ -24,3 +24,8 @@ input {
 }
 
 
+
+.search-result{
+  font-size: 2rem;
+  margin-top: 1.5rem;
+}

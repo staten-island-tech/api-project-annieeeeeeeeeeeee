@@ -1,6 +1,5 @@
 const DOMSelectors = {
   all: document.getElementById("all"),
-  holidays: document.getElementById("holidays"),
   christmas: document.getElementById("Christmas"),
   hallow: document.getElementById("Halloween"),
   puns: document.getElementById("puns"),
@@ -17,6 +16,8 @@ const DOMSelectors = {
   listJokes: document.getElementById("display-section"),
   deliveryDisplay: document.getElementById("delivery-display-section"),
   searchDisplay: document.getElementById("searchDisplay"),
+  next: document.getElementById("next-btn"),
+  deliverBtn: document.getElementById("deliver"),
 };
 
 export { DOMSelectors };
